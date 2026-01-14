@@ -1,0 +1,300 @@
+/* ============================================
+   Liquid Glass Button Styles
+   ============================================ */
+
+.liquid-button {
+  position: relative;
+  width: 100%;
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-2xl);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  color: var(--neutral-100);
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-out);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Liquid fill effect - animated pseudo element */
+.liquid-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0%;
+  background: var(--liquid-gradient, linear-gradient(180deg, 
+    rgba(212, 175, 55, 0.3) 0%, 
+    rgba(212, 175, 55, 0.1) 100%
+  ));
+  transition: height var(--duration-slow) var(--ease-spring);
+  z-index: 0;
+}
+
+/* Reflection stroke effect */
+.liquid-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    var(--reflection-angle, 135deg),
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.05) 80%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: opacity var(--duration-normal) var(--ease-out);
+}
+
+/* Button content */
+.liquid-button__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.liquid-button__icon {
+  font-size: var(--text-2xl);
+  line-height: 1;
+}
+
+.liquid-button__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.liquid-button__label {
+  font-weight: var(--font-semibold);
+}
+
+.liquid-button__subtitle {
+  font-size: var(--text-sm);
+  color: var(--neutral-400);
+  font-weight: var(--font-normal);
+}
+
+/* Hover state */
+.liquid-button:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--glass-shadow), var(--shadow-glow);
+}
+
+.liquid-button:hover::before {
+  height: 100%;
+}
+
+/* Active/pressed state */
+.liquid-button:active {
+  transform: translateY(0);
+  transition-duration: var(--duration-fast);
+}
+
+/* Focus state */
+.liquid-button:focus-visible {
+  outline: 2px solid var(--gold-500);
+  outline-offset: 2px;
+}
+
+/* Ripple effect container */
+.liquid-button__ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212, 175, 55, 0.4) 0%,
+    rgba(212, 175, 55, 0) 70%
+  );
+  transform: scale(0);
+  animation: ripple var(--duration-slow) var(--ease-out) forwards;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* === Alcohol-specific liquid fills === */
+
+/* Wine */
+.liquid-button[data-alcohol="wine"] {
+  --liquid-gradient: linear-gradient(180deg, 
+    rgba(74, 14, 14, 0.5) 0%, 
+    rgba(26, 5, 5, 0.8) 100%
+  );
+}
+
+.liquid-button[data-alcohol="wine"]:hover {
+  border-color: var(--wine-mid);
+}
+
+/* Whiskey */
+.liquid-button[data-alcohol="whiskey"] {
+  --liquid-gradient: linear-gradient(180deg, 
+    rgba(212, 165, 116, 0.5) 0%, 
+    rgba(139, 69, 19, 0.8) 100%
+  );
+}
+
+.liquid-button[data-alcohol="whiskey"]:hover {
+  border-color: var(--whiskey-light);
+}
+
+/* Raki */
+.liquid-button[data-alcohol="raki"] {
+  --liquid-gradient: linear-gradient(180deg, 
+    rgba(232, 232, 232, 0.5) 0%, 
+    rgba(156, 163, 175, 0.8) 100%
+  );
+}
+
+.liquid-button[data-alcohol="raki"]:hover {
+  border-color: var(--raki-light);
+}
+
+/* Beer */
+.liquid-button[data-alcohol="beer"] {
+  --liquid-gradient: linear-gradient(180deg, 
+    rgba(245, 158, 11, 0.5) 0%, 
+    rgba(120, 53, 15, 0.8) 100%
+  );
+}
+
+.liquid-button[data-alcohol="beer"]:hover {
+  border-color: var(--beer-light);
+}
+
+/* Vodka */
+.liquid-button[data-alcohol="vodka"] {
+  --liquid-gradient: linear-gradient(180deg, 
+    rgba(224, 242, 254, 0.5) 0%, 
+    rgba(12, 74, 110, 0.8) 100%
+  );
+}
+
+.liquid-button[data-alcohol="vodka"]:hover {
+  border-color: var(--vodka-light);
+}
+
+/* Gin */
+.liquid-button[data-alcohol="gin"] {
+  --liquid-gradient: linear-gradient(180deg, 
+    rgba(209, 250, 229, 0.5) 0%, 
+    rgba(6, 78, 59, 0.8) 100%
+  );
+}
+
+.liquid-button[data-alcohol="gin"]:hover {
+  border-color: var(--gin-light);
+}
+
+/* Tequila */
+.liquid-button[data-alcohol="tequila"] {
+  --liquid-gradient: linear-gradient(180deg, 
+    rgba(132, 204, 22, 0.5) 0%, 
+    rgba(202, 138, 4, 0.8) 100%
+  );
+}
+
+.liquid-button[data-alcohol="tequila"]:hover {
+  border-color: var(--tequila-mid);
+}
+
+/* === Button Variants === */
+
+/* Unsure/Skip button */
+.liquid-button--unsure {
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--neutral-600);
+  color: var(--neutral-400);
+  font-size: var(--text-base);
+  padding: var(--space-4) var(--space-5);
+}
+
+.liquid-button--unsure:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--neutral-500);
+  color: var(--neutral-300);
+  box-shadow: none;
+}
+
+.liquid-button--unsure::before {
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.05) 0%, 
+    rgba(255, 255, 255, 0.02) 100%
+  );
+}
+
+/* Primary action button */
+.liquid-button--primary {
+  background: linear-gradient(135deg, var(--gold-600), var(--gold-500));
+  border-color: var(--gold-500);
+  color: var(--emerald-950);
+  font-weight: var(--font-semibold);
+}
+
+.liquid-button--primary:hover {
+  background: linear-gradient(135deg, var(--gold-500), var(--gold-400));
+  box-shadow: var(--shadow-glow-lg);
+}
+
+.liquid-button--primary::before {
+  display: none;
+}
+
+/* Secondary button */
+.liquid-button--secondary {
+  background: transparent;
+  border-color: var(--gold-600);
+  color: var(--gold-400);
+}
+
+.liquid-button--secondary:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: var(--gold-500);
+  color: var(--gold-300);
+}
+
+/* Small size */
+.liquid-button--sm {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-base);
+  border-radius: var(--radius-xl);
+}
+
+/* Large size */
+.liquid-button--lg {
+  padding: var(--space-6) var(--space-8);
+  font-size: var(--text-xl);
+  border-radius: var(--radius-3xl);
+}

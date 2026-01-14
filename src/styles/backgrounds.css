@@ -1,0 +1,175 @@
+/* ============================================
+   Dynamic Background Styles - 30% Darker
+   ============================================ */
+
+/* Base background with emerald gradient - DARKER */
+#background-container {
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    #043d2e 0%,
+    #021f19 50%,
+    #010d0b 100%
+  );
+}
+
+/* Alcohol-specific backgrounds - ALL 30% DARKER */
+.bg-wine {
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    #350a0a 0%,
+    #120404 60%,
+    #050101 100%
+  ) !important;
+}
+
+.bg-whiskey {
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    #61300d 0%,
+    #54250a 60%,
+    #120a04 100%
+  ) !important;
+}
+
+.bg-raki {
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    #a3a3a3 0%,
+    #6d7278 40%,
+    #1a1a1a 100%
+  ) !important;
+}
+
+.bg-beer {
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    #ab6f08 0%,
+    #7f3a06 50%,
+    #54250a 100%
+  ) !important;
+}
+
+.bg-vodka {
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    #9dd5f2 0%,
+    #58a4c8 30%,
+    #08344d 100%
+  ) !important;
+}
+
+.bg-gin {
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    #92dfc9 0%,
+    #046949 50%,
+    #043729 100%
+  ) !important;
+}
+
+.bg-tequila {
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    #85a933 0%,
+    #5c8f10 40%,
+    #253a0e 100%
+  ) !important;
+}
+
+/* Dark overlay for better text readability */
+#background-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+/* === Bubble Styles === */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.bubble--small {
+  width: 8px;
+  height: 8px;
+}
+
+.bubble--medium {
+  width: 16px;
+  height: 16px;
+}
+
+.bubble--large {
+  width: 24px;
+  height: 24px;
+}
+
+/* Beer-specific bubbles (more golden) */
+.bubble--beer {
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(252, 211, 77, 0.5) 0%,
+    rgba(245, 158, 11, 0.2) 50%,
+    rgba(245, 158, 11, 0.1) 100%
+  );
+}
+
+/* Raki-specific bubbles (milky) */
+.bubble--raki {
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+}
+
+/* === Ambient Light Effects === */
+.ambient-light {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  opacity: 0.2;
+  will-change: opacity, transform;
+}
+
+.ambient-light--gold {
+  background: var(--gold-500);
+}
+
+.ambient-light--emerald {
+  background: var(--emerald-500);
+}
+
+/* === Overlay for transitions === */
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-out);
+  pointer-events: none;
+}
+
+.bg-overlay--active {
+  opacity: 1;
+}
+
+/* === Noise texture (optional luxury effect) === */
+.bg-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
