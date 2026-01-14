@@ -1,7 +1,6 @@
-# SAKİ APP - 🍷
+# SAKİ APP - Your Perfect Pour, Every Time 🍷
 
 The system under consideration comprises a three-step alcohol recommendation engine. The provision of bespoke recommendations is predicated on the assumption that the individual concerned has expressed their preferences with sufficient clarity.
-
 
 ![SAKİ APP](public/logo.png)
 
@@ -12,6 +11,7 @@ The selection of beverages on offer comprises more than 130 different items. Alc
 Smart Matching: The utilisation of confidence score-based recommendations
 The present text has been translated into both Turkish and English languages. The system is equipped with a flag toggle, facilitating a seamless transition.
 The following text concerns itself with the concept of 'iOS-Native Design'. The subject of this study is glassmorphism and GSAP animations.
+
 - **PWA Ready**: The design is optimised for mobile devices, ensuring a seamless user experience across a range of screen sizes.
 
 ## 🚀 Getting Started
