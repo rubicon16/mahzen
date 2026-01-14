@@ -1,59 +1,59 @@
 # SAKİ APP 🍷
 
-3 adımlı alkol seçim motoru. Damak tadına göre kişiselleştirilmiş öneriler.
+A 3-step alcohol recommendation engine. Personalized suggestions based on your taste preferences.
 
 ![SAKİ APP](public/logo.png)
 
-## ✨ Özellikler
+## ✨ Features
 
-- **3 Adımlı Seçim**: İçki türü → Ortam → Tat profili
-- **130+ İçecek**: Viski, rakı, bira, votka, cin, tekila...
-- **Akıllı Eşleştirme**: Güven skoru bazlı öneriler
-- **TR/EN Dil Desteği**: Bayrak değiştirici ile kolay geçiş
-- **iOS-Native Tasarım**: Glassmorphism, GSAP animasyonları
-- **PWA Hazır**: Mobil uyumlu responsive tasarım
+- **3-Step Selection**: Drink type → Occasion → Flavor profile
+- **130+ Beverages**: Whiskey, rakı, beer, vodka, gin, tequila...
+- **Smart Matching**: Confidence score-based recommendations
+- **TR/EN Language Support**: Easy switch with flag toggle
+- **iOS-Native Design**: Glassmorphism, GSAP animations
+- **PWA Ready**: Mobile-friendly responsive design
 
-## 🚀 Kurulum
+## 🚀 Getting Started
 
 ```bash
-# Bağımlılıkları kur
+# Install dependencies
 npm install
 
-# Geliştirme sunucusu
+# Development server
 npm run dev
 
 # Production build
 npm run build
 ```
 
-## 🛠️ Teknolojiler
+## 🛠️ Tech Stack
 
 - **Vite** - Build tool
-- **GSAP** - Animasyonlar
-- **Vanilla JS** - Framework yok, saf JavaScript
+- **GSAP** - Animations
+- **Vanilla JS** - No framework, pure JavaScript
 - **CSS Variables** - Design tokens
 
-## 📁 Proje Yapısı
+## 📁 Project Structure
 
 ```
 src/
-├── components/     # UI bileşenleri
-├── screens/        # Ekranlar
-├── engine/         # Öneri algoritması
-├── i18n/           # Çeviri sistemi
-├── data/           # İçecek veritabanı
-└── styles/         # CSS dosyaları
+├── components/     # UI components
+├── screens/        # Screen views
+├── engine/         # Recommendation algorithm
+├── i18n/           # Translation system
+├── data/           # Beverage database
+└── styles/         # CSS files
 ```
 
-## 🌐 Deploy
+## 🌐 Deployment
 
-Vercel'de otomatik deploy için:
+For automatic deployment on Vercel:
 
-1. GitHub repo'yu Vercel'e import et
-2. Framework: Vite (otomatik algılanır)
+1. Import GitHub repo to Vercel
+2. Framework: Vite (auto-detected)
 3. Deploy!
 
-## 📄 Lisans
+## 📄 License
 
 MIT
 
